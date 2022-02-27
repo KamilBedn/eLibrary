@@ -1,0 +1,39 @@
+﻿@model IEnumerable<e_Library.Models.ReservedBook>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>List of reservet book</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ReservedData)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Book.Author)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.FirstName)
+            @Html.DisplayNameFor(model => model.User.LastName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReservedData)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Book.Author)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.FirstName)
+            @Html.DisplayFor(modelItem => item.User.LastName)
+        </td>
+    </tr>
+}
+
+</table>
