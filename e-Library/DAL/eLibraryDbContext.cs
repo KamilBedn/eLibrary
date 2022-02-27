@@ -9,7 +9,7 @@ namespace e_Library.DAL
 {
     public partial class eLibraryDbContext : DbContext
     {
-        public eLibraryDbContext() : base("eLibraryDbContext")
+        public eLibraryDbContext() : base("eLibraryDb")
         {
 
         }

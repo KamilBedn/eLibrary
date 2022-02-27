@@ -12,11 +12,11 @@ namespace e_Library.Models
         [Key]
         public int ReservedBookId { get; set; }
         public DateTime ReservedData { get; set; }
+        [ForeignKey("Book")]
         public int BookId { get; set; }
+        [ForeignKey("User")]
         public int UserId { get; set; }
-        [ForeignKey("BookId")]
         public virtual Book Book { get; set; }
-        [ForeignKey("UserId")]
         public virtual User User { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using e_Library.Models;
+﻿using e_Library.DAL;
+using e_Library.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,11 @@ namespace e_Library.Controllers
 {
     public class ReservedBookController : Controller
     {
-        private static IList<ReservedBook> reservedBooks = new List<ReservedBook>();
+        private readonly eLibraryDbContext _dbContext = new eLibraryDbContext();
 
         public ActionResult Index()
         {
-            return View(reservedBooks);   
+            return View(_dbContext.Reserved);   
         }
     }
 }

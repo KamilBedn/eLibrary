@@ -11,8 +11,8 @@ namespace e_Library.Controllers
     {
         private static IList<User> users = new List<User>()
         {
-            new User() {UserId = 1, FirstName = "Adam", LastName = "Kowalski", Email = "kowalski@wp.pl", Password = "kamizelka", ConfirmPassword ="kamizelka"},
-            new User() {UserId = 1, FirstName = "Adam", LastName = "Kowalski", Email = "kowalski@wp.pl", Password = "kamizelka", ConfirmPassword ="kamizelka"}
+            new User() { FirstName = "Adam", LastName = "Kowalski", Email = "kowalski@wp.pl", Password = "kamizelka", ConfirmPassword ="kamizelka"},
+            new User() { FirstName = "Adam", LastName = "Kowalski", Email = "kowalski@wp.pl", Password = "kamizelka", ConfirmPassword ="kamizelka"}
         };
     
         public ActionResult Index()

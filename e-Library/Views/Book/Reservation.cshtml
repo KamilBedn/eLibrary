@@ -1,47 +1,62 @@
 ﻿@model e_Library.Models.Book
 
 @{
-    ViewData["Title"] = "Reserved";
+    ViewBag.Title = "Reservation";
 }
 
-<h1>Reservation book</h1>
+<h2>Reservation book</h2>
 
 <div>
     <h4>Book</h4>
     <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
+    <dl class="dl-horizontal">
+        <dt>
             @Html.DisplayNameFor(model => model.Title)
         </dt>
-        <dd class="col-sm-10">
+
+        <dd>
             @Html.DisplayFor(model => model.Title)
         </dd>
-        <dt class="col-sm-2">
+
+        <dt>
             @Html.DisplayNameFor(model => model.Author)
         </dt>
-        <dd class="col-sm-10">
+
+        <dd>
             @Html.DisplayFor(model => model.Author)
         </dd>
-        <dt class="col-sm-2">
+
+        <dt>
             @Html.DisplayNameFor(model => model.PublicationData)
         </dt>
-        <dd class="col-sm-10">
+
+        <dd>
             @Html.DisplayFor(model => model.PublicationData)
         </dd>
-        <dt class="col-sm-2">
+
+        <dt>
             @Html.DisplayNameFor(model => model.Description)
         </dt>
-        <dd class="col-sm-10">
+
+        <dd>
             @Html.DisplayFor(model => model.Description)
         </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsReserved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsReserved)
+        </dd>
+
     </dl>
 
-    @using (Html.BeginForm())
-    {
+    @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Reservation" class="btn btn-default" /> |
+            <input type="submit" value="Delete" class="btn btn-default" /> |
             @Html.ActionLink("Back to list of books", "Index")
         </div>
     }

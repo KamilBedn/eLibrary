@@ -1,49 +1,47 @@
 ﻿@model IEnumerable<e_Library.Models.Book>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewBag.Title = "Index";
 }
 
-<h1>Lista of books</h1>
+<h2>Lista of books</h2>
 
 <p>
-    @Html.ActionLink("Add nem book to e-Library", "Create")
+@Html.ActionLink("Add nem book to e-Library", "Create")
 </p>
 <table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Author)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsReserved)
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Author)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsReserved)
+        </th>
+        <th></th>
+    </tr>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Author)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IsReserved)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit book", "Edit", new { id = item.BookId }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.BookId }) |
-                    @Html.ActionLink("Reservation", "Reservation", new { id = item.BookId }) |
-                    @Html.ActionLink("Cancel Reservation", "CancelReservation", new { id = item.BookId })
-                </td>
-            </tr>
-        }
-    </tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsReserved)
+            </td>
+            <td>
+                @Html.ActionLink("Edit book", "Edit", new { id = item.BookId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.BookId }) |
+                @Html.ActionLink("Reservation", "Reservation", new { id = item.BookId }) |
+                @Html.ActionLink("Cancel Reservation", "CancelReservation", new { id = item.BookId })
+            </td>
+        </tr>
+    }
+
 </table>
