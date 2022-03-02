@@ -15,9 +15,13 @@ namespace e_Library.Models
         [EmailAddress]
         [Required(ErrorMessage = "Enter Email")]
         public string Email { get; set; }
-        [Required(ErrorMessage = "Enter Password")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
+        [DataType(DataType.Password)]
+        [Compare("Password", ErrorMessage = "Password and Confirm Password are diffiernt")]
         public string ConfirmPassword { get; set; }
+        public bool IsLogin { get; set; }
+
         public virtual ICollection<ReservedBook> ReservedBooks { get; set; }
     }
 }

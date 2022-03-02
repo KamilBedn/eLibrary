@@ -12,11 +12,10 @@
             @Html.DisplayNameFor(model => model.ReservedData)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Book.Author)
+            @Html.DisplayNameFor(model => model.BookId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.User.FirstName)
-            @Html.DisplayNameFor(model => model.User.LastName)
+            @Html.DisplayNameFor(model => model.UserId)
         </th>
         <th></th>
     </tr>
@@ -27,11 +26,10 @@
             @Html.DisplayFor(modelItem => item.ReservedData)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Book.Author)
+            @Html.DisplayFor(modelItem => item.BookId)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.User.FirstName)
-            @Html.DisplayFor(modelItem => item.User.LastName)
+            @Html.DisplayFor(modelItem => item.UserId)
         </td>
     </tr>
 }

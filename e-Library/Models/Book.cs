@@ -21,7 +21,6 @@ namespace e_Library.Models
         public string Description { get; set; }
         [DefaultValue(false)]
         public bool IsReserved { get; set; }
-        [Required]
         public virtual ICollection<ReservedBook> ReservedBook { get; set; }
     }
 }

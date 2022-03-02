@@ -9,16 +9,17 @@ namespace e_Library.DAL
 {
     public partial class eLibraryDbContext : DbContext
     {
-        public eLibraryDbContext() : base("eLibraryDb")
-        {
-
-        }
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        public eLibraryDbContext() : base("name=eLibraryDb")
         {
             
         }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+
+        }
         public virtual DbSet<Book> Books { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<ReservedBook> Reserved { get; set; }
+        public virtual DbSet<ReservedBook> ReservedBooks { get; set; }
     }
 }

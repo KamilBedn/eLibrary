@@ -1,8 +1,9 @@
 ﻿using e_Library.DAL;
 using e_Library.Models;
+using e_Library.ViewModel;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity.Validation;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -17,9 +18,9 @@ namespace e_Library.Controllers
         {
             try
             {
-                return View(_dbContext.Books.Where(x => x.IsReserved == false));
+                return View(_dbContext.Books.ToList());
             }
-            catch (InvalidOperationException ex)
+            catch (Exception ex)
             {
                 return View(ex.Message);
             }
@@ -41,6 +42,7 @@ namespace e_Library.Controllers
         public ActionResult Create(Book book)
         {
             _dbContext.Books.Add(book);
+            _dbContext.SaveChanges();
             return RedirectToAction("Index");
 
         }
@@ -59,7 +61,7 @@ namespace e_Library.Controllers
             book.Author = bookEdit.Author;
             book.PublicationData = bookEdit.PublicationData;
             book.Description = bookEdit.Description;
-
+            _dbContext.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -71,13 +73,19 @@ namespace e_Library.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Reservation(int id, ReservedBook reservedBook)
+        public ActionResult Reservation(int id, User model)
         {
             Book book = _dbContext.Books.FirstOrDefault(x => x.BookId == id);
-            book.IsReserved = true;
-            if (book.IsReserved == true)
-                _dbContext.Reserved.Add(reservedBook);
-            return RedirectToAction("Index", "ReservedBook");
+            User user = _dbContext.Users.FirstOrDefault(x => x.IsLogin == true);
+            if (user.IsLogin == true)
+            {
+                _dbContext.ReservedBooks.Add(new ReservedBook { ReservedData = DateTime.Now, BookId = book.BookId, UserId = user.UserId });
+                book.IsReserved = true;
+                _dbContext.SaveChanges();
+                return RedirectToAction("Index", "ReservedBook");
+            }
+
+            return RedirectToAction("Index", "Book");
         }
 
         public ActionResult CancelReservation(int id)
@@ -87,13 +95,19 @@ namespace e_Library.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CancelReservation(int id, ReservedBook cancelReservedBook)
+        public ActionResult CancelReservation(int id, ReservedBook reservedBook)
         {
-            Book book = _dbContext.Books.FirstOrDefault(x => x.BookId == id);
-            book.IsReserved = false;
-            if(book.IsReserved == false)
-                _dbContext.Reserved.Remove(cancelReservedBook);
-            return RedirectToAction("Index");
+            var canceledReservation = _dbContext.ReservedBooks.FirstOrDefault(x => x.BookId == id);
+            var book = _dbContext.Books.FirstOrDefault(x => x.IsReserved == true);
+            var user = _dbContext.Users.FirstOrDefault(x => x.IsLogin == true);
+            if (canceledReservation.UserId == user.UserId)
+            { 
+                _dbContext.ReservedBooks.Remove(canceledReservation);
+                book.IsReserved = false;
+                _dbContext.SaveChanges();
+                return RedirectToAction("Index", "Book");
+            }
+            return RedirectToAction("Index", "Book");
         }
     }
 }

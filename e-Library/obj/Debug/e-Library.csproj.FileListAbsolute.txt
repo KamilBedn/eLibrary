@@ -72,7 +72,6 @@ C:\Users\aleks\source\repos\e-Library\e-Library\bin\System.Web.WebPages.Razor.xm
 C:\Users\aleks\source\repos\e-Library\e-Library\bin\Newtonsoft.Json.xml
 C:\Users\aleks\source\repos\e-Library\e-Library\bin\Antlr3.Runtime.pdb
 C:\Users\aleks\source\repos\e-Library\e-Library\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\aleks\source\repos\e-Library\e-Library\obj\Debug\e-Library.csproj.AssemblyReference.cache
 C:\Users\aleks\source\repos\e-Library\e-Library\obj\Debug\e-Library.csproj.CoreCompileInputs.cache
 C:\Users\aleks\source\repos\e-Library\e-Library\obj\Debug\e-Library.csproj.CopyComplete
 C:\Users\aleks\source\repos\e-Library\e-Library\obj\Debug\e-Library.dll
@@ -81,3 +80,13 @@ C:\Users\aleks\source\repos\e-Library\e-Library\bin\EntityFramework.dll
 C:\Users\aleks\source\repos\e-Library\e-Library\bin\EntityFramework.SqlServer.dll
 C:\Users\aleks\source\repos\e-Library\e-Library\bin\EntityFramework.xml
 C:\Users\aleks\source\repos\e-Library\e-Library\bin\EntityFramework.SqlServer.xml
+C:\Users\aleks\source\repos\e-Library\e-Library\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\aleks\source\repos\e-Library\e-Library\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\aleks\source\repos\e-Library\e-Library\bin\Microsoft.Owin.Security.dll
+C:\Users\aleks\source\repos\e-Library\e-Library\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\aleks\source\repos\e-Library\e-Library\bin\Owin.dll
+C:\Users\aleks\source\repos\e-Library\e-Library\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\aleks\source\repos\e-Library\e-Library\bin\Microsoft.Owin.Security.xml
+C:\Users\aleks\source\repos\e-Library\e-Library\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\aleks\source\repos\e-Library\e-Library\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\aleks\source\repos\e-Library\e-Library\obj\Debug\e-Library.csproj.AssemblyReference.cache

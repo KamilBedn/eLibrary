@@ -12,9 +12,10 @@ namespace e_Library.Controllers
     {
         private readonly eLibraryDbContext _dbContext = new eLibraryDbContext();
 
+
         public ActionResult Index()
         {
-            return View(_dbContext.Reserved);   
+            return View(_dbContext.ReservedBooks);   
         }
     }
 }
